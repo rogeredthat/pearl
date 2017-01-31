@@ -52,10 +52,15 @@ ul#nav {
     display: inline-block;
     max-width: 80%;
     vertical-align: top;
+    white-space: nowrap;
+}
+
+#nav li.enabled {
+    width:20vw;
 }
 
 #nav li {
-    width: 20vw;
+    width: 0vw;
     position: relative;
     height: 30em;
     animation:palette 0.5s 1 ease-out;
@@ -134,7 +139,7 @@ ul#nav {
     font-family: "Georgia",serif;
     display: block;
     line-height: 1.4em;
-    max-width: 18vw;
+    width: 16vw;
 }
 
 #nav li a > .label > .anchor {
@@ -142,6 +147,7 @@ ul#nav {
     margin-top: 2em;
     font-weight: bolder;
     color: rgba(50,50,50,0.6);
+    white-space: nowrap;
 }
 
 #nav li > label {
@@ -159,15 +165,15 @@ ul#nav {
 }
 
 #nav li > label > span {
-    font-size: 8vw;
+    font-size: 3vw;
     transform-origin: 0% 0%;
-    line-height: 2em;
-    font-weight: 300;
+    line-height: 8vw;
+    font-weight: 400;
     position: absolute;
     top: 95%;
     color: white;
     display: block;
-    transform: rotateZ(-90deg) scale(0.5);
+    transform: rotateZ(-90deg);
     left: 0;
 }
 
@@ -255,6 +261,7 @@ ul#nav {
     border: none;
     font-size: 1.2vw;
     transition: width 0.5s;
+    white-space: initial;
 }
 
 #nav {
