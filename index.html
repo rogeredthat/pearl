@@ -5,51 +5,46 @@
         <title>A Pen by  Abhilash Verma</title>
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,900" rel="stylesheet">
-        <script src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link type="text/stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
     </head>
     <body>
+        <div id="backgrounds">
+            <div class="active"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="wrapper">
             <div id="ferris">
                 <div class="back"/></div>
-                <div class="mid"/></div>
+                <div class="mid"/>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                    <div class="carriage"></div>
+                </div>
                 <div class="fore"/></div>
             </div>
             <div id="pages">
-                <div class="page active" id="_events" pageId=0>
+                <div class="page active" id="_1" pageId=0>
                     <div class="header">
                         <div class="title">
-                            <svg viewBox="0 0 550 120">
-                                <symbol id="events_text">
-                                    <text text-anchor="end" x="100%" y="95%">EVENTS</text>
-                                </symbol>
-                                <use xlink:href="#events_text" class="text"></use>
-                                <use xlink:href="#events_text" class="text"></use>
-                                <use xlink:href="#events_text" class="text"></use>
-                                <use xlink:href="#events_text" class="text"></use>
-                            </svg>
+                            <span>EVENTS</span>
                         </div>
                         <div class="subtext">Lorem ipsum dolor sit amet, zril graecis neglegentur ne sea, vel in semper virtute dolorem. Fugit vitae aeterno mei in. Sint legendos laboramus qui at, patrioque sadipscing omittantur eu mea. Feugiat habemus consectetuer qui eu, te mea sint autem inani.  
                         </div>
-                    </div>
-                    <div id="headliners">
-                        <div class="card" style="transition-delay:0.3s"></div>
-                        <div class="card" style="transition-delay:0.2s"></div>
-                        <div class="card" style="transition-delay:0.1s"></div>
-                        <div class="card" style="transition-delay:0s"></div>
                     </div>
                 </div>
                 <div class="page" id="_2" pageId=1>
                     <div class="header">
                         <div class="title">
-                            <svg viewBox="0 0 550 120">
-                                <symbol id="proshows_text">
-                                    <text text-anchor="end" x="100%" y="95%">PRO SHOWS</text>
-                                </symbol>
-                                <use xlink:href="#proshows_text" class="text"></use>
-                                <use xlink:href="#proshows_text" class="text"></use>
-                                <use xlink:href="#proshows_text" class="text"></use>
-                                <use xlink:href="#proshows_text" class="text"></use>
-                            </svg>
+                            <span>PRO</span><span>SHOWS</span>
                         </div>
                         <div class="subtext">Lorem ipsum dolor sit amet, zril graecis neglegentur ne sea, vel in semper virtute dolorem. Fugit vitae aeterno mei in. Sint legendos laboramus qui at, patrioque sadipscing omittantur eu mea. Feugiat habemus consectetuer qui eu, te mea sint autem inani.  
                         </div>
@@ -59,6 +54,12 @@
                 <div class="page" id="_4" pageId=3></div>
             </div>
         </div>
+        <div id="headliners" class="active_from_anchor" anchor=0 >
+                        <div class="card" style="transition-delay:0.3s"></div>
+                        <div class="card" style="transition-delay:0.2s"></div>
+                        <div class="card" style="transition-delay:0.1s"></div>
+                        <div class="card" style="transition-delay:0s"></div>
+                    </div>
     </body>
     <script src="js/index.js"></script>
 </html>

@@ -165,7 +165,7 @@ ul#nav {
 }
 
 #nav li > label > span {
-    font-size: 3vw;
+    font-size: 2.3vw;
     transform-origin: 0% 0%;
     line-height: 8vw;
     font-weight: 400;
@@ -186,6 +186,10 @@ ul#nav {
 #nav li.open {
     width: 50vw;
     pointer-events:none;
+}
+
+#nav li:not(.enabled) {
+    width:0vw !important;
 }
 
 #nav li.open a > .back {

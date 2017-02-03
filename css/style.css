@@ -9,8 +9,8 @@ div.wrapper {
     transform-origin: 50% 50%;
     position: fixed;
     left: -100vw;
-    background: #ccc;
-    transition: transform 1s ease-out;
+    transition: transform 2.5s cubic-bezier(0, 0.33, 0.58, 1);
+    will-change: transform;
 }
 
 .page {
@@ -19,77 +19,135 @@ div.wrapper {
     position: absolute;
     top: 50vw;
     display: block;
-    margin: 0;
+    margin: 2px;
+    /* margin-left: 2px; */
     left: 100vw;
     transform-origin: 0% 100%;
 }
-
-div.page#_2 {
-    transform: rotateZ(90deg)
+.page::before {
+    width:100vw;
+    height:100vh;
+    content:"";
+    position:absolute;    
+    top:0;
+    left:0;
 }
 
-div.page#_3 {
-    transform: rotateZ(180deg)
+#backgrounds {
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    left:0;
+    top:0;
+}
+#backgrounds div {
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:opacity 1.5s;
+    will-change:opacity;
+}
+#backgrounds div.active {
+    opacity:1;
+}
+
+#backgrounds div:nth-child(1) {
+    background: linear-gradient(60deg,#41295a,#2F0743);
+}
+
+#backgrounds div:nth-child(2) {
+    background: linear-gradient(60deg,#1D4350,#A43931);
+}
+
+#backgrounds div:nth-child(3) {
+    background: linear-gradient(60deg,#360033,#0b8793);
+}
+
+#backgrounds div:nth-child(4) {
+    background: linear-gradient(60deg,#C04848,#480048);
+}
+
+#_2 {
+    transform: rotateZ(90deg);
+}
+
+#_3 {
+    transform: rotateZ(180deg);
 }
 
 div.page#_4 {
-    transform: rotateZ(270deg)
+    transform: rotateZ(270deg);
 }
 
-#_events.active #headliners .card{
-    transform:none;
-}
+
 .header {
-    width:50%;
+    width: 50%;
     position: absolute;
     left: 5%;
-    display:block;
+    display: flex;
     top: 20px;
     overflow: hidden;
     border-right: rgba(68, 68, 85, 0.08) solid 1px;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
 }
+
 .header > .title {
-    width:100%;
+    width: 100%;
+    line-height: 0.5;
     position: relative;
-    padding: 20px;
-    padding-bottom: 0;
-    padding-right: 0;
+    padding-right: 20px;
     font-size: 10em;
     font-weight: 900;
     font-family: Lato;
     letter-spacing: -0.065em;
+    will-change: transform;
     transform: translateY(-50%);
     opacity: 0;
-    transition:transform 0.5s, opacity 0.3s;
+    text-align: right;
+    transition: transform 0.5s, opacity 0.3s;
+    padding-bottom: 5%;
 }
 
 .active .header > .title {
-    transform:none;
-    opacity:1;
+    transform: none;
+    opacity: 1;
+    line-height: 1;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+.header > .title > span {
+    display: block;
+    margin-bottom: -5%;
 }
 
 .header > .subtext {
-    width:40%;
-    position:relative;
-    float:right;
-    clear:both;
+    width: 40%;
+    position: relative;
+    float: right;
+    clear: both;
     text-align: right;
-    font-family: Quicksand;
+    font-family: Lato;
     padding-bottom: 30px;
     padding-right: 15px;
-    transform:translateX(-100%);
-    opacity:0;
-    transition:transform 0.5s 0.2s, opacity 0.3s 0.2s;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s 0.2s, opacity 0.3s 0.2s;
 }
+
 .active .header > .subtext {
-    opacity:1;
-    transform:none;
+    opacity: 1;
+    transform: none;
 }
 
 #headliners {
-    width: 30vw;
+    width: 35vw;
     position: absolute;
-    right: 0;
+    right: 5vw;
     top: 0;
     height: 100%;
     overflow: hidden;
@@ -108,8 +166,10 @@ div.page#_4 {
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(transparent 70%,#ccc);
+    background: linear-gradient(transparent 70%,rgb(55, 23, 78));
     pointer-events: none;
+    opacity:0;
+    transition:opacity 0.5s;
 }
 
 #headliners .card {
@@ -119,39 +179,112 @@ div.page#_4 {
     display: block;
     background: white;
     margin-top: -10px;
-    transform:translateX(150%);
-    transition:transform 0.5s;
+    border-radius:2px;
+    transform: translateX(150%);
+    transition: transform 0.5s;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
 }
 
-@keyframes stackIn{
-    0%{
-        transform:translateX(100%)
+#headliners.active_from_anchor::after {
+    opacity:1;
+    transition:opacity 0.5s 1.5s;
+}
+
+#headliners.active_from_anchor .card {
+    transform: none;
+}
+
+@keyframes stackIn {
+    0% {
+        transform: translateX(100%)
     }
 }
 
 #ferris {
     display: block;
     position: absolute;
-    width: 50vw;
-    height: 50vw;
-    margin: -25vw;
+    width: 70vw;
+    height: 70vw;
+    margin: -35vw;
     left: 50%;
     top: 50%;
     z-index: +383;
-    border: 40px solid #fff;
     border-color: #fff #000 #eef #445;
     border-radius: 50%;
 }
 
+#ferris .mid .carriage {
+    height:18vw;
+    background:url('../img/ferii1.svg');
+    width:15vw;
+    background-position:50% 50%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    left: 100%;
+    top: 50%;
+    margin:0 -9vw;
+    transform-origin: 50% 4%;
+    will-change: transform;
+}
+
+#ferris .mid .carriage:nth-child(1) {
+    left:85.35%;
+    top:14.65%;
+}
+
+#ferris .mid .carriage:nth-child(2) {
+    left:100%;
+    top:50%;
+}
+
+#ferris .mid .carriage:nth-child(3) {
+    left:85.35%;
+    top:82.35%;
+    background-image:url('../img/ferii2.svg');
+}
+#ferris .mid .carriage:nth-child(4) {
+    left:50%;
+    margin-left:-7vw;
+    top:97%;
+    background-image:url('../img/ferii2.svg');
+}
+#ferris .mid .carriage:nth-child(5) {
+    left:14.65%;
+    margin-left:-6vw;
+    top:82.35%;
+    background-image:url('../img/ferii4.svg');
+}
+#ferris .mid .carriage:nth-child(6) {
+    left:0%;
+    margin-left:-5vw;
+    top:50%;
+    background-image:url('../img/ferii4.svg');
+}
+#ferris .mid .carriage:nth-child(7) {
+    left:14.65%;
+    margin-left:-6vw;
+    top:14.65%;
+    background-image:url('../img/ferii5.svg');
+}
+#ferris .mid .carriage:nth-child(8) {
+    left:50%;
+    margin-left:-7vw;
+    top:0%;
+    background-image:url('../img/ferii5.svg');
+}
 #ferris div {
     width: 100%;
     height: 100%;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 #ferris div.back {
-    background-image: url("../img/wheelback.svg"), none;
+    background-image: url("../img/ferris front.svg"), none;
 }
+
 #ferris div.fore {
-    background-image: url("../img/wheelfront.svg"), none;
+    background-image: url("../img/ferris back.svg"), none;
 }
