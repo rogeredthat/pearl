@@ -19,8 +19,8 @@ function catchWheel(e) {
         step: function(now, fx) {
             $(this).css('transform', 'rotate(' + (now) + 'deg)');
         },
-        duration: 7000,
-        easing: 'easeOutElastic'
+        duration: 5000,
+        easing: 'easeOutBack'
     });
     setTimeout(function() {
         $('.page.active').removeClass('active');
