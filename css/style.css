@@ -1,29 +1,32 @@
 body {
     margin: 0;
-    font-size:1.2vw;
+    font-size: 1.2vw;
 }
+
 /**
    Declarations for background
 **/
 #backgrounds {
-    width:100vw;
-    height:100vh;
-    position:fixed;
-    left:0;
-    top:0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
+
 #backgrounds div {
-    height:100%;
-    width:100%;
-    position:absolute;
-    top:0;
-    left:0;
-    opacity:0;
-    transition:opacity 1.5s;
-    will-change:opacity;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1.5s;
+    will-change: opacity;
 }
+
 #backgrounds div.active {
-    opacity:1;
+    opacity: 1;
 }
 
 #backgrounds div:nth-child(1) {
@@ -45,7 +48,6 @@ body {
 /**
    Declarations for circular page lineup
 **/
-
 div.wrapper {
     width: 200vw;
     height: 200vw;
@@ -84,7 +86,6 @@ div.wrapper {
 /**
 Declarations for In Page template
 **/
-
 .header {
     width: 50%;
     position: absolute;
@@ -154,7 +155,6 @@ Declarations for In Page template
 /**
 Declarations for Headliners component
 **/
-
 #headliners {
     width: 35vw;
     position: absolute;
@@ -164,13 +164,13 @@ Declarations for Headliners component
     height: 100%;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     padding: 0px 5vw;
     overflow: hidden;
     pointer-events: none;
     perspective: 500px;
-    top:50%;
-    transform:translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #headliners::after {
@@ -182,110 +182,120 @@ Declarations for Headliners component
     right: 0;
     background: linear-gradient(rgba(55, 23, 78,0.5),transparent 30%, transparent 70%,rgba(55, 23, 78,0.5));
     pointer-events: none;
-    opacity:0;
-    transition:opacity 0.5s;
-    z-index:30;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 30;
 }
 
 .card {
-    width:35vw;
+    width: 35vw;
     position: absolute;
     height: 15vw;
     display: flex;
-    align-items:center;
+    align-items: center;
     flex-direction: column;
     background: white;
-    border-radius:2px;
+    border-radius: 2px;
     pointer-events: all;
     margin-left: 250%;
-    margin-top:0px;
-    transform:rotateX(90deg) translateY(-100%);
-    opacity:0;
-    pointer-events:none;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.1);
+    margin-top: 0px;
+    transform: rotateX(90deg) translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
 }
-#headliners .card[order]{
-    position:absolute;
+
+#headliners .card[order] {
+    position: absolute;
 }
+
 #headliners .card {
     top: 50%;
-    margin-top:-7.5vw;
-    left: 50%;    
+    margin-top: -7.5vw;
+    left: 50%;
 }
+
 #headliners.active_from_anchor .card {
-    margin-left:-17.5vw;
+    margin-left: -17.5vw;
 }
-#headliners .card[order='1']{
-    top:17%;
+
+#headliners .card[order='1'] {
+    top: 17%;
 }
-#headliners .card[order='3']{
-    top:83%;
+
+#headliners .card[order='3'] {
+    top: 83%;
 }
+
 #headliners .card.active {
-    transform:scale(1);
-    pointer-events:all;
-    opacity:1;
-    z-index:+50;
+    transform: scale(1);
+    pointer-events: all;
+    opacity: 1;
+    z-index: +50;
     transition: margin 0.65s 0.65s ease-out,top 0.65s ease-out,transform 0.5s 0.4s cubic-bezier(0,0,0,1),opacity 1s 0.4s cubic-bezier(0,0,0,1) !important;
 }
+
 #headliners .card.leaving {
-    transform:rotateX(-90deg) translateY(100%);
-    opacity:0;
-    transition:margin 0.3s 0.5s,transform 0.5s ease-in ,opacity 0.5s cubic-bezier(0,0,0,1) !important;
-}
-.card::after {
-    content:"";
-    position:absolute;
-    pointer-events:none;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background:linear-gradient(transparent 10%,rgba(0,0,0,0.5));
+    transform: rotateX(-90deg) translateY(100%);
+    opacity: 0;
+    transition: margin 0.3s 0.5s,transform 0.5s ease-in ,opacity 0.5s cubic-bezier(0,0,0,1) !important;
 }
 
+.card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent 10%,rgba(0,0,0,0.5));
+}
 
 .active_from_anchor::after {
-    opacity:1;
-    transition:opacity 0.5s 1.5s;
+    opacity: 1;
+    transition: opacity 0.5s 1.5s;
 }
 
 .active_from_anchor .card {
-    margin-left:0px;
+    margin-left: 0px;
     transition: margin 1s cubic-bezier(0,0,0,1), transform 0.5s cubic-bezier(0, 0, 0.34, 1), opacity 0.5s !important;
 }
 
 .thumb {
     width: 100%;
     height: 100%;
-    background:#eee;
-    position:relative;
-    display:block;
+    background: #eee;
+    position: relative;
+    display: block;
 }
+
 .label {
     width: 100%;
-    z-index:+20;
+    z-index: +20;
     height: 30%;
-    bottom:0;
-    position:absolute;
-    display:flex;
-    box-sizing:border-box;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
     padding: 10% 5%;
     flex-direction: column;
-    font-family:Lato,sans-serif;
+    font-family: Lato,sans-serif;
     justify-content: space-around;
 }
+
 .label > .title {
-    font-size:2em;
+    font-size: 2em;
     font-weight: 900;
-    display:block;
+    display: block;
     color: #eeeeef;
     line-height: 0.9;
     margin-bottom: 2%;
 }
+
 .label > .short {
-    font-size:1em;
-    color:#eee;
+    font-size: 1em;
+    color: #eee;
 }
 
 /**
@@ -293,48 +303,50 @@ Declarations for Ferris Wheel component
 **/
 #pro_shows {
     display: flex;
-    overflow:hidden;
+    overflow: hidden;
     width: 45vw;
-    position:absolute;
+    position: absolute;
     right: 0vw;
-    height:100%;
-    align-items:center;
-    opacity:0;
+    height: 100%;
+    align-items: center;
+    opacity: 0;
     transition: opacity 0.5s, margin 0.5s,box-shadow 2s 1s ease-out;
     transition-timing-function: cubic-bezier(0, 0, 0.99, -0.21);
     pointer-events: none;
     box-shadow: none;
     justify-content: space-around;
 }
+
 #pro_shows.active_from_anchor {
     transition-timing-function: cubic-bezier(0.52, -0.01, 0.32, 1);
     opacity: 1;
     pointer-events: all;
     margin-right: 0;
 }
+
 #pro_shows .card {
-    width:100%;
-    height:100%;
-    transform:none;
-    margin-left:100%;
-}
-#pro_shows .card.active {
-    margin-left:0;
-    opacity:1;
-    z-index:+100;
-    transition:margin 0.5s 0.25s cubic-bezier(0,0,0,1),opacity 0.5s 0.25s cubic-bezier(0,0,0,1) !important;
-}
-#pro_shows .card.leaving {
-    transform:scale(0.9);
-    opacity:0;
-    transition:margin 0.5s 0.5s,transform 0.5s ease-in,opacity 0.5s ease-in !important;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    margin-left: 100%;
 }
 
+#pro_shows .card.active {
+    margin-left: 0;
+    opacity: 1;
+    z-index: +100;
+    transition: margin 0.5s 0.25s cubic-bezier(0,0,0,1),opacity 0.5s 0.25s cubic-bezier(0,0,0,1) !important;
+}
+
+#pro_shows .card.leaving {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: margin 0.5s 0.5s,transform 0.5s ease-in,opacity 0.5s ease-in !important;
+}
 
 /**
 Declarations for Ferris Wheel component
 **/
-
 #ferris {
     display: block;
     position: absolute;
@@ -349,65 +361,71 @@ Declarations for Ferris Wheel component
 }
 
 #ferris .mid .carriage {
-    height:18vw;
-    background:url('../img/ferii1.svg');
-    width:15vw;
-    background-position:50% 50%;
-    background-size:cover;
-    background-repeat:no-repeat;
+    height: 18vw;
+    background: url('../img/ferii1.svg');
+    width: 15vw;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
     left: 100%;
     top: 50%;
-    margin:0 -9vw;
+    margin: 0 -9vw;
     transform-origin: 50% 4%;
     will-change: transform;
 }
 
 #ferris .mid .carriage:nth-child(1) {
-    left:85.35%;
-    top:14.65%;
+    left: 85.35%;
+    top: 14.65%;
 }
 
 #ferris .mid .carriage:nth-child(2) {
-    left:100%;
-    top:50%;
+    left: 100%;
+    top: 50%;
 }
 
 #ferris .mid .carriage:nth-child(3) {
-    left:85.35%;
-    top:82.35%;
-    background-image:url('../img/ferii2.svg');
+    left: 85.35%;
+    top: 82.35%;
+    background-image: url('../img/ferii2.svg');
 }
+
 #ferris .mid .carriage:nth-child(4) {
-    left:50%;
-    margin-left:-7vw;
-    top:97%;
-    background-image:url('../img/ferii2.svg');
+    left: 50%;
+    margin-left: -7vw;
+    top: 97%;
+    background-image: url('../img/ferii2.svg');
 }
+
 #ferris .mid .carriage:nth-child(5) {
-    left:14.65%;
-    margin-left:-6vw;
-    top:82.35%;
-    background-image:url('../img/ferii4.svg');
+    left: 14.65%;
+    margin-left: -6vw;
+    top: 82.35%;
+    background-image: url('../img/ferii4.svg');
 }
+
 #ferris .mid .carriage:nth-child(6) {
-    left:0%;
-    margin-left:-5vw;
-    top:50%;
-    background-image:url('../img/ferii4.svg');
+    left: 0%;
+    margin-left: -5vw;
+    top: 50%;
+    background-image: url('../img/ferii4.svg');
 }
+
 #ferris .mid .carriage:nth-child(7) {
-    left:14.65%;
-    margin-left:-6vw;
-    top:14.65%;
-    background-image:url('../img/ferii5.svg');
+    left: 14.65%;
+    margin-left: -6vw;
+    top: 14.65%;
+    background-image: url('../img/ferii5.svg');
 }
+
 #ferris .mid .carriage:nth-child(8) {
-    left:50%;
-    margin-left:-7vw;
-    top:0%;
+    left: 50%;
+    margin-left: -7vw;
+    top: 0%;
     margin-top: 1vw;
-    background-image:url('../img/ferii5.svg');
+    background-image: url('../img/ferii5.svg');
 }
+
 #ferris div {
     width: 100%;
     height: 100%;
@@ -423,4 +441,167 @@ Declarations for Ferris Wheel component
 
 #ferris div.fore {
     background-image: url("../img/ferris back.svg"), none;
+}
+
+#home_page {
+    background: linear-gradient(60deg,#fec315,#fcb017);
+    position: fixed;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    z-index: +10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home_page > .confetti {
+    height: 100%;
+    position: absolute;
+}
+
+#home_page > .confetti.back > img {
+    transform: rotateZ(0deg) translate(20%,40%) scale(2);
+    -webkit-filter: blur(2px);
+}
+
+#home_page > .confetti.middle > img {
+    -webkit-filter: blur(1px);
+}
+
+#home_page > .confetti.front > img {
+    transform: rotateZ(-20deg) translate(30%,40%) scale(5);
+    -webkit-filter: blur(3px);
+}
+
+#home_page > .confetti > img {
+    width: 100%;
+}
+
+#home_page .anchor {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    right: 0;
+    padding-left: 5%;
+    box-sizing: border-box;
+    padding-right: 5%;
+    text-align: right;
+    align-items: flex-end;
+    font-family: 'Lato',sans-serif;
+}
+
+#home_page .anchor > span.title {
+    font-size: 3em;
+    line-height: 1;
+    color: #122;
+    margin-bottom:0.5em;
+}
+
+#home_page .anchor > div.subtext {
+    font-weight: 300;
+    color:#122;
+    display:block;
+}
+
+#enter_site {
+    margin-top:1.5em;
+    font-family:'bungee';
+    color:white;
+    display:block;
+    font-size: 1.2em;
+}
+
+#logo {
+    position: absolute;
+    width: 50vw;
+    margin: -25vh -25vw;
+    top: 50%;
+    left: 30%;
+    display: block;
+    text-align:center;
+}
+#logo > div {
+    font-size:1.5em;
+    font-family:'bungee';
+    text-shadow:-2px -2px 0px rgba(0,0,0,0.7);
+    text-align:center;
+    position:absolute;
+    top:110%;
+    left:0;
+    width:100%;
+    color:white;
+}
+
+#logo > img {
+    position: relative;
+    width: 90%;
+    height:auto;
+}
+#logo > img[name="off"] {
+    position:absolute;
+}
+
+#logo.off > [name="on"] {
+    opacity: 0;
+    transition: all 0.1s;
+}
+
+#logo.on > [name="on"] {
+    animation: flicker 5s 1 ease-out;
+    transition: all 0.1s;
+    opacity: 1;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+
+    1% {
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    2.5% {
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0;
+    }
+
+    9% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    12.5% {
+        opacity: 1;
+    }
+
+    13% {
+        opacity: 0;
+    }
+
+    13.5% {
+        opacity: 1;
+    }
+
+    14% {
+        opacity: 0;
+    }
+
+    16% {
+        opacity: 1;
+    }
 }
