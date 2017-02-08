@@ -51,10 +51,11 @@ body {
 div.wrapper {
     width: 200vw;
     height: 200vw;
-    top: -50vw;
+    top: 100%;
     transform-origin: 50% 50%;
     position: fixed;
-    left: -100vw;
+    left: 0%;
+    margin:-100vw;
     transition: transform 2.5s cubic-bezier(0, 0.23, 0.58, 1);
     overflow: hidden;
 }
@@ -63,10 +64,10 @@ div.wrapper {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: 50vw;
+    margin:-100vh 0px;
+    top: 50%;
     display: block;
-    margin: 2px;
-    left: 100vw;
+    left: 50%;
     overflow: hidden;
     transform-origin: 0% 100%;
 }
@@ -445,7 +446,7 @@ Declarations for Ferris Wheel component
 }
 
 #home_page {
-    background: linear-gradient(23deg,#180924,#361450);
+    background: #290835;
     position: fixed;
     display:flex;
     flex-direction:column;
@@ -456,6 +457,10 @@ Declarations for Ferris Wheel component
     width: 100%;
     height: 100%;
 }
+#home_page.inactive {
+    transition:transform 0.4s ease-out;
+    transform:translateX(-100%);
+}
 #home_page::before{
     background: #f3b712;
     content:"";
@@ -465,11 +470,11 @@ Declarations for Ferris Wheel component
     width:100%;
     height:100%;
     opacity:0;
-    transition:opacity 5s 1s ease-out;
+    transition:opacity 2s ease-out;
 }
-#home_page.lit::after {
+#home_page.lit::before {
     opacity: 1;
-    transition:opacity 0.5s ease-out;
+    transition:opacity 0.3s ease-out;
 }
 
 #home_page > .confetti {
@@ -477,7 +482,15 @@ Declarations for Ferris Wheel component
     width:50%;
     left:5%;
 }
-
+#home_page > .shadow {
+    height: 5vh;
+    top: 70%;
+    width: 40%;
+    left: 10%;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.71);
+    filter: blur(15px);
+}
 
 #home_page > .confetti > img {
     width: 100%;
@@ -504,20 +517,35 @@ Declarations for Ferris Wheel component
     color: #441548;
     margin-bottom:0.5em;
     color: #E1BEE7;
+    transition:color 2s;
 }
 
 #home_page .anchor > div.subtext {
     font-weight: 300;
-    color: #F3E5F5;
     display:block;
 }
 
 #enter_site {
-    margin-top:1.5em;
-    font-family:'bungee';
-    color: #E1BEE7;
+    margin-top:3em;
+    color: #F3E5F5;
     display:block;
-    font-size: 1.2em;
+    font-size: 1em;
+    position:relative;
+    font-weight: 300;
+    cursor:pointer;
+    padding-right: 0.75em;
+}
+#enter_site::before {
+    content:"";
+    z-index: -10;
+    position:absolute;
+    height:2em;
+    width:2em;
+    border-radius:50%;
+    background:#fec315;
+    top:50%;
+    margin-top:-1em;
+    right:-0.125em;
 }
 
 #logo {
@@ -529,16 +557,21 @@ Declarations for Ferris Wheel component
     display: block;
     text-align:center;
 }
+#logo > div, #home_page .anchor > div.subtext, #enter_site {
+    color:#F3E5F5;
+    transition:color 2s;
+}
 #logo > div {
-    font-size:1.5em;
-    font-family:'bungee';
-    text-shadow:-2px -2px 0px rgba(0,0,0,0.7);
+    font-size:1em;
+    font-family:'Lato',sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
     text-align:center;
     position:absolute;
     top:110%;
     left:0;
     width:100%;
-    color:white;
 }
 
 #logo > img {
@@ -550,17 +583,19 @@ Declarations for Ferris Wheel component
     position:absolute;
 }
 
-#logo.off > [name="on"] {
+#logo > [name="on"] {
     opacity: 0;
-    transition: all 0.1s;
-}
-
-#logo.on > [name="on"] {
+    transition: all 2s;
     animation: flicker 5s 1 ease-out;
-    transition: all 0.1s;
-    opacity: 1;
 }
-
+#home_page.lit > #logo > [name="on"]{
+    opacity: 1;
+    transition: all 0.3s;
+}
+#home_page.lit > #logo > div, #home_page.lit #enter_site,#home_page.lit .anchor > div.subtext, #home_page.lit .anchor .title {
+    color:#445;
+    transition:color 0.2s !important;
+}
 @keyframes flicker {
     0% {
         opacity: 1;
@@ -616,11 +651,73 @@ Declarations for Ferris Wheel component
 */
 
 #team {
-    display: block;
-    padding:0;
+    display: flex;
+    padding: 5% 5vw;
+    width: 45vw;
+    height: 100%;
+    flex-direction: column;
+    z-index: +10000;
+    position: absolute;
+    right: 0;
+    justify-content: space-around;
+    box-sizing: border-box;
 }
-#team > li {
+#team > .row {
     display: block;
-    line-height:1.5em;
     color:#445;
+    height: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+}
+#team > .row > .dude {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width:33.33%;
+    height:100%;
+    float: left;
+    position:relative;
+    box-sizing: border-box;
+    padding: 10% 0;
+    transform:scale(0);
+    pointer-events: none;
+    transition:transform 0.25s;
+    background:linear-gradient(60deg,#ddd,#ccd);
+}
+#team.active_from_anchor > .row > .dude{
+    transform:none;
+    pointer-events: all;
+    transition:transform 0.25s ease-out;
+}
+#team > .row > .dude::after {
+    content:"";
+    position:absolute;
+    opacity: 0;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition:opacity 0.25s;
+    background:linear-gradient(transparent 20%,rgba(0,0,0,0.3));
+}
+#team > .row > .dude:hover::after {
+    opacity: 1;
+    transition:opacity 0.25s;
+}
+
+#team > .row > .dude > span{
+    display: block;
+    text-align: center;
+    line-height: 2em;
+    color:#dededf;
+    font-family: 'Lato',sans-serif;
+    font-weight: 300;
+    opacity: 0;
+    transition:opacity 0.25s;
+    z-index: +50;
+    position:relative;
+}
+#team > .row > .dude:hover > span {
+    opacity: 1;
+    transition:opacity 0.25s 0.125s;
 }
