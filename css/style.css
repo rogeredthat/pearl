@@ -156,7 +156,7 @@ Declarations for In Page template
 Declarations for Headliners component
 **/
 #headliners {
-    width: 35vw;
+    width: 45vw;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -165,12 +165,13 @@ Declarations for Headliners component
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-around;
-    padding: 0px 5vw;
+    padding: 10% 5vw;
     overflow: hidden;
     pointer-events: none;
     perspective: 500px;
     top: 50%;
     transform: translateY(-50%);
+    box-sizing: border-box;
 }
 
 #headliners::after {
@@ -190,7 +191,7 @@ Declarations for Headliners component
 .card {
     width: 35vw;
     position: absolute;
-    height: 15vw;
+    height: 12vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -211,7 +212,7 @@ Declarations for Headliners component
 
 #headliners .card {
     top: 50%;
-    margin-top: -7.5vw;
+    margin-top: -6vw;
     left: 50%;
 }
 
@@ -220,11 +221,11 @@ Declarations for Headliners component
 }
 
 #headliners .card[order='1'] {
-    top: 17%;
+    top: 22%;
 }
 
 #headliners .card[order='3'] {
-    top: 83%;
+    top:78%;
 }
 
 #headliners .card.active {
@@ -444,7 +445,7 @@ Declarations for Ferris Wheel component
 }
 
 #home_page {
-    background: linear-gradient(60deg,#fec315,#fcb017);
+    background: linear-gradient(23deg,#180924,#361450);
     position: fixed;
     display:flex;
     flex-direction:column;
@@ -455,25 +456,28 @@ Declarations for Ferris Wheel component
     width: 100%;
     height: 100%;
 }
+#home_page::before{
+    background: #f3b712;
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity 5s 1s ease-out;
+}
+#home_page.lit::after {
+    opacity: 1;
+    transition:opacity 0.5s ease-out;
+}
 
 #home_page > .confetti {
-    height: 100%;
     position: absolute;
+    width:50%;
+    left:5%;
 }
 
-#home_page > .confetti.back > img {
-    transform: rotateZ(0deg) translate(20%,40%) scale(2);
-    -webkit-filter: blur(2px);
-}
-
-#home_page > .confetti.middle > img {
-    -webkit-filter: blur(1px);
-}
-
-#home_page > .confetti.front > img {
-    transform: rotateZ(-20deg) translate(30%,40%) scale(5);
-    -webkit-filter: blur(3px);
-}
 
 #home_page > .confetti > img {
     width: 100%;
@@ -497,20 +501,21 @@ Declarations for Ferris Wheel component
 #home_page .anchor > span.title {
     font-size: 3em;
     line-height: 1;
-    color: #122;
+    color: #441548;
     margin-bottom:0.5em;
+    color: #E1BEE7;
 }
 
 #home_page .anchor > div.subtext {
     font-weight: 300;
-    color:#122;
+    color: #F3E5F5;
     display:block;
 }
 
 #enter_site {
     margin-top:1.5em;
     font-family:'bungee';
-    color:white;
+    color: #E1BEE7;
     display:block;
     font-size: 1.2em;
 }
@@ -604,4 +609,18 @@ Declarations for Ferris Wheel component
     16% {
         opacity: 1;
     }
+}
+
+/*
+    Declarations for team navigation
+*/
+
+#team {
+    display: block;
+    padding:0;
+}
+#team > li {
+    display: block;
+    line-height:1.5em;
+    color:#445;
 }
