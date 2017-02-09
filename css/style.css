@@ -160,7 +160,7 @@ Declarations for In Page template
 }
 .active .header > .subtext a:hover {
     cursor:pointer;
-    text-decoration:none;
+    text-decoration:underline;
 }
 
 .active .header > .subtext {
