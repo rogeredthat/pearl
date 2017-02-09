@@ -107,6 +107,12 @@ $('#home_page:not(".inactive")').mousemove(function(e) {
     if (clearTime) clearTimeout(clearTime);
     clearTime = setTimeout(function() {
         $('#home_page').removeClass('lit');
-    }, 2000);
+    }, 1000);
 });
 
+$('#team .dude').mouseover(function(){
+    $('#details_of_peeps .dude[dude-anchor='+$(this).attr('dude')+']').addClass('active').siblings().removeClass('active');
+});
+$('#team').mouseout(function(){
+    $('#details_of_peeps .dude').removeClass('active');
+});
