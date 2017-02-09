@@ -63,6 +63,14 @@ $('#enter_site').click(function() {
     listenersOfTheWheel(1);
 });
 
+$('#campus_location .button').click(function(){
+    $('#contact').addClass('busting');
+})
+
+$('.bustiming .escape').click(function(){
+    $('#contact').removeClass('busting');
+})
+
 //Initializing the carousel for headliners
 
 var $next = $('#headliners > .card').eq(3); //This stores the next card in the wait list
