@@ -52,7 +52,9 @@ a {
     background: linear-gradient(60deg, #33467e, #4e68b7)
 }
 
-
+#confeti {
+    position: absolute;
+}
 /**
    Declarations for circular page lineup
 **/
@@ -511,7 +513,7 @@ Declarations for Ferris Wheel component
 }
 
 #home_page::before {
-    background: #f3b712;
+    background: linear-gradient(60deg,#4b0f62 40%,#290835);
     content: "";
     position: absolute;
     top: 0;
@@ -588,8 +590,9 @@ Declarations for Ferris Wheel component
     color: #F3E5F5;
     display: block;
     font-size: 1em;
+    line-height:1.5em;
     position: relative;
-    font-weight: 300;
+    font-weight: 900;
     cursor: pointer;
     padding-right: 0.75em;
 }
@@ -679,14 +682,6 @@ Declarations for Ferris Wheel component
 #home_page.lit > #logo > [name="on"] {
     opacity: 1;
     transition: all 0.3s;
-}
-
-#home_page.lit > #logo > div,
-#home_page.lit #enter_site,
-#home_page.lit .anchor > div.subtext,
-#home_page.lit .anchor .title {
-    color: #445;
-    transition: color 0.2s !important;
 }
 
 @keyframes flicker {
