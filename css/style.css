@@ -667,7 +667,7 @@ Declarations for Ferris Wheel component
     opacity: 0;
     transition: all 2s;
 }
-#home_page.ready > [name="on"] {
+#home_page.ready [name="on"] {
     animation: flicker 5s 1 ease-out;
 }
 
